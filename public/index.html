@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Make an App</title>
+  </head>
+  <body>
+    <form>
+      <p>
+        <label>
+          App name (keep it short!):
+          <input type="text" name="name" placeholder="My App">
+        </label>
+      </p>
+      <p>
+        <label>
+          Link to the contents:
+          <input type="url" name="url" placeholder="http://example.com">
+        </label>
+      </p>
+      <p>
+        <button type="submit">Generate App!</button>
+      </p>
+    </form>
+    <script>
+      document.querySelector('form').onsubmit = function (event) {
+        event.preventDefault()
+        const {name: {value: name}, url: {value: url}} = this
+        window.location.href = getBaseUrl(name, url) + '/app'
+      }
+
+      function getBaseUrl(name, url) {
+        // Encoded "\" (%5c) and "/" "%2f" are not allowed in the service worker scope
+        // hence the double encodeURIComponent() call.
+        // https://www.w3.org/TR/service-workers-1/#navigator-service-worker-register
+        const e = encodeURIComponent
+        return `/${e(e(name))}/${e(e(url))}`
+      }
+    </script>
+  </body>
+</html>
