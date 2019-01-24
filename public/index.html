@@ -8,13 +8,23 @@
       <p>
         <label>
           App name (keep it short!):
-          <input type="text" name="name" placeholder="My App">
+          <input
+            type="text" name="name" placeholder="My App"
+            required
+            pattern=".*\S.*"
+            title="App name can not be empty"
+          >
         </label>
       </p>
       <p>
         <label>
           Link to the contents:
-          <input type="url" name="url" placeholder="http://example.com">
+          <input
+            type="url" name="url" placeholder="https://example.com"
+            required
+            pattern="https://.*"
+            title="Only https links will work"
+          >
         </label>
       </p>
       <p>
