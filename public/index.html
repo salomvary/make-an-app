@@ -2,12 +2,51 @@
 <html>
   <head>
     <title>Make an App</title>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html {
+        padding: 0 20px;
+      }
+      body {
+        font-family: sans-serif;
+        max-width: 400px;
+        margin: 0 auto;
+        background: white;
+      }
+      input, button {
+        margin: 5px 0;
+        font: inherit;
+        height: 35px;
+        line-height: 35px;
+        background: white;
+        border: 1px solid lightgray;
+        border-radius: 0;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+      }
+      .label {
+        font-weight: bold;
+      }
+      .submit {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
+    <h1>Make an App</h1>
+    <p>
+      Turn any web application or page into a Progressive Web App.
+      PWAs can be installed on the home screen on a smartphone's
+      home screen and look like a native app.
+    </p>
     <form>
       <p>
         <label>
-          App name (keep it short!):
+          <span class="label">App name (keep it short!):</span>
           <input
             type="text" name="name" placeholder="My App"
             required
@@ -18,7 +57,7 @@
       </p>
       <p>
         <label>
-          Link to the contents:
+          <span class="label">Link to the contents:</span>
           <input
             type="url" name="url" placeholder="https://example.com"
             required
@@ -28,7 +67,11 @@
         </label>
       </p>
       <p>
-        <button type="submit">Generate App!</button>
+        Note: not every website allows embedding, in that case
+        you will see a blank white screen.
+      </p>
+      <p class="submit">
+        <button type="submit">Generate App</button>
       </p>
     </form>
     <script>
